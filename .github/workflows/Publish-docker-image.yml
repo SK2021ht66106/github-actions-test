@@ -22,5 +22,5 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Run a multi-line script
       run: |
-         docker run --name testapp -d saikiran243275/githubactions:latest
+         docker run --name testapp12 -d saikiran243275/githubactions:latest
          docker ps
