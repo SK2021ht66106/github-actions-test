@@ -20,3 +20,7 @@ jobs:
         name: saikiran243275/githubactions:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Run a multi-line script
+      run: |
+         docker run --name testapp123 -p 5000 -d saikiran243275/githubactions:latest
+         docker ps
