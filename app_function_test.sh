@@ -2,7 +2,7 @@
 #Checking if application is up and running
 app_health=$(curl --silent http://localhost:5000)
 echo $app_health
-if [ "$app_health" == "This is Devops Assignment - Bits Pilani!" ]
+if [ "$app_health" == "Github Actions Demo!" ]
 then 
 	echo "Application health is OK!"
 	exit 0
