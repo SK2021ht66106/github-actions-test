@@ -10,9 +10,9 @@ jobs:
   job1:
     runs-on: self-hosted
     steps:
-      - id: git checkout
+      - name: git checkout
         uses: actions/checkout@v3
-      - id: Publish to Registry
+      - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           name: saikiran243275/githubactions:latest
