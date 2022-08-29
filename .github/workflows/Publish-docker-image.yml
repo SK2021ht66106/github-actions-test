@@ -24,11 +24,3 @@ jobs:
         name: saikiran243275/githubactions:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        
-  Deploy:
-    runs-on: self-hosted
-    steps:
-    - run: |
-         docker run --name testapp123987 -p 5000 -d saikiran243275/githubactions:latest
-         docker ps
-         docker images
