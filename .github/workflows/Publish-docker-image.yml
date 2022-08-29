@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  job1:
+  Build_and_Publish:
     runs-on: self-hosted
     steps:
       - name: git checkout
