@@ -1,0 +1,31 @@
+name: Publish Build with Manual Trigger
+on:
+  workflow_dispatch:
+    inputs:
+      rgname:
+        description: 'Resource group name'     
+        required: true
+        default: 'test'
+      cluster_name:
+        description: 'AKS Cluster name'     
+        required: true
+        default: 'aks12378678'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create AKS Cluster
+        uses: Azure/aks-create-action@1.1
+        with:
+          ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+          RESOURCE_GROUP_NAME: ${{ inputs.rgname }}
+          CLUSTER_NAME: ${{ inputs.cluster_name }}
+          STORAGE_ACCOUNT_NAME: ${{ secrets.STORAGE_ACCOUNT_NAME }}
+          STORAGE_CONTAINER_NAME: ${{ secrets.STORAGE_CONTAINER_NAME }}
+          STORAGE_ACCESS_KEY: ${{ secrets.STORAGE_ACCESS_KEY }}
