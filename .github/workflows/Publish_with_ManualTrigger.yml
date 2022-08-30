@@ -49,7 +49,7 @@ jobs:
             cluster-name: ${{ inputs.cluster_name }}
         id: login
       - name: Create Namespace
-        run:
+        run: |
           namespacePresent='kubectl get namespace | grep myapp | wc -l'
           echo $namespacePresent
           if [[ "$namespacePresent" != "0" ]];
