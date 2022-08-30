@@ -53,7 +53,7 @@ jobs:
           namespacePresent='kubectl get namespace | grep myapp | wc -l'
           #if [ $namespacePresent -eq 0 ]
           #then
-          echo 'kubectl create namespace myapp'
+          #echo 'kubectl create namespace myapp'
           #fi   
       - name: Deploy to Kubernetes cluster 
         uses: Azure/k8s-deploy@v4
