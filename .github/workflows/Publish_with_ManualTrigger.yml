@@ -54,7 +54,7 @@ jobs:
           if [ $namespacePresent -eq 0 ]
           then
               echo 'kubectl create namespace myapp'
-              fi   
+          fi   
       - name: Deploy to Kubernetes cluster 
         uses: Azure/k8s-deploy@v4
         with:
