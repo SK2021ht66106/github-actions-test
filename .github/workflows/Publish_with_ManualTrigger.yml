@@ -46,7 +46,7 @@ jobs:
         with:
           name: 
           resource-group: ${{ inputs.rgname }}
-          client-id: ${{ inputs.cluster_name }}
+          client-id: ${{ secrets.ARM_CLIENT_ID }}
           client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           admin: true
