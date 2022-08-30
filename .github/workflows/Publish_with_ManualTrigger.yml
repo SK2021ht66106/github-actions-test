@@ -29,6 +29,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
   Deploy_on_docker:
     runs-on: self-hosted
+    needs: Build_and_Publish
     steps:
       - name: Deploy on docker 
         run: |
@@ -37,6 +38,7 @@ jobs:
          docker images
   Deploy_on_kubernetes:
     runs-on: self-hosted
+    needs: Deploy_on_docker
     steps:
       - name: AKS Login
         uses: wemogy/aks-login-action@1.1.1
