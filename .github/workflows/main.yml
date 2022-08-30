@@ -1,0 +1,29 @@
+name: Publish Build Docker Image CI
+on:
+  workflow_dispatch:
+    inputs:
+      appname:
+        description: 'appname to deploy'     
+        required: true
+        default: 'test'
+        
+jobs:
+  Build_and_Publish:
+    runs-on: self-hosted
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v3
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@v4
+        with:
+          name: saikiran243275/githubactions:latest
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+  Deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Deploy to docker 
+        run: |
+         docker run --name ${{ inputs.appname }} -p 5000 -d saikiran243275/githubactions:latest
+         docker ps
+         docker images
