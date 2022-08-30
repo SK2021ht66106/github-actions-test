@@ -41,15 +41,28 @@ jobs:
     runs-on: self-hosted
     needs: Deploy_on_docker
     steps:
-      - name: AKS Login
-        uses: wemogy/aks-login-action@1.1.1
-        with:
-          name: ${{ inputs.cluster_name }}
-          resource-group: ${{ inputs.rgname }}
-          client-id: ${{ secrets.ARM_CLIENT_ID }}
-          client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
-          tenant-id: ${{ secrets.ARM_TENANT_ID }}
-          #admin: true
+      - name: Azure Login
+        shell: bash
+        run: |
+          az login \
+            --service-principal \
+            --username ${{ secrets.ARM_CLIENT_ID }} \
+            --password ${{ secrets.ARM_CLIENT_SECRET }} \
+            --tenant ${{ secrets.ARM_TENANT_ID }}
+      - name: Kubernetes Login
+        if: inputs.admin
+        shell: bash
+        run: |
+          if [[ "${{ inputs.admin }}" == "true" ]]; then
+            az aks get-credentials \
+              --name ${{ inputs.cluster_name }} \
+              --resource-group ${{ inputs.rgname }} \
+              --admin
+          else
+            az aks get-credentials \
+              --name ${{ inputs.cluster_name }} \
+              --resource-group ${{ inputs.rgname }}
+          fi
 
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4
