@@ -43,16 +43,16 @@ jobs:
           client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           admin: true
-    
-    
-    
+          
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
           namespace: 'myapp'
           manifests: |
-            
+            deployment.yaml
+            pod_defination.yaml
+            service.yaml
           images: saikiran243275/githubactions:latest
           annotate-namespace: false
      

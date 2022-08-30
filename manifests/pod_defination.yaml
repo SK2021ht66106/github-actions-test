@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloapppod
+spec:
+  containers:
+  - name: helloapp
+    image: saikiran243275/githubactions:latest

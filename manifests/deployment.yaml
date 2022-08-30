@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloapp-deployment1
+  labels:
+    app: helloapp
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: helloapp
+    spec:
+      containers:
+      - name: helloapp
+        image: saikiran243275/githubactions:latest
+        imapepullpolicy:IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: helloapp
