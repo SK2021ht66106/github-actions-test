@@ -44,7 +44,7 @@ jobs:
       - name: AKS Login
         uses: wemogy/aks-login-action@1.1.1
         with:
-          name: 
+          name: ${{ inputs.cluster_name }}
           resource-group: ${{ inputs.rgname }}
           client-id: ${{ secrets.ARM_CLIENT_ID }}
           client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
