@@ -38,9 +38,9 @@ jobs:
          docker ps
          docker images
   Deploy_on_kubernetes:
-#     runs-on: self-hosted
-#     needs: Deploy_on_docker
-#     steps:
+    runs-on: self-hosted
+    needs: Deploy_on_docker
+    steps:
 #       - name: Azure Login
 #         shell: bash
 #         run: |
