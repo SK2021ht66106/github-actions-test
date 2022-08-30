@@ -1,4 +1,4 @@
-name: Publish Build with Manual Trigger
+name: Create AKS Cluster
 on:
   workflow_dispatch:
     inputs:
