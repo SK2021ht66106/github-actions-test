@@ -65,15 +65,16 @@ jobs:
           fi
 
       - name: Deploy to Kubernetes cluster
-        uses: Azure/k8s-deploy@v4
-        with:
-          action: deploy
-          namespace: 'myapp'
-          manifests: |
-            manifests\deployment.yaml
-            manifests\pod_defination.yaml
-            manifests\service.yaml
-          images: saikiran243275/githubactions:latest
-          annotate-namespace: false
+        run: ls
+        # uses: Azure/k8s-deploy@v4
+        # with:
+        #   action: deploy
+        #   namespace: 'myapp'
+        #   manifests: |
+        #     manifests\deployment.yaml
+        #     manifests\pod_defination.yaml
+        #     manifests\service.yaml
+        #   images: saikiran243275/githubactions:latest
+        #   annotate-namespace: false
      
   
