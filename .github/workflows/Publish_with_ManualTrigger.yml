@@ -41,7 +41,7 @@ jobs:
     runs-on: self-hosted
     needs: Deploy_on_docker
     steps:
-	    - name: Azure Login
+      - name: Azure Login
         shell: bash
         run: |
           az login \
