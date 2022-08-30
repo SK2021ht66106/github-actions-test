@@ -5,7 +5,7 @@ on:
       rgname:
         description: 'Resource group name'     
         required: true
-        default: 'test'
+        default: 'github_test_rg'
       cluster_name:
         description: 'AKS Cluster name'     
         required: true
