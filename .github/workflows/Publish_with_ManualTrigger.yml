@@ -33,6 +33,7 @@ jobs:
     steps:
       - name: Deploy on docker 
         run: |
+         docker rm -f
          docker run --name ${{ inputs.appname }} -p 5000 -d saikiran243275/githubactions:latest
          docker ps
          docker images
