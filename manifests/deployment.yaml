@@ -14,7 +14,7 @@ spec:
       containers:
       - name: helloapp
         image: saikiran243275/githubactions:latest
-        imapepullpolicy:IfNotPresent
+        imapepullpolicy: IfNotPresent
       restartPolicy: Always
   selector:
     matchLabels:
