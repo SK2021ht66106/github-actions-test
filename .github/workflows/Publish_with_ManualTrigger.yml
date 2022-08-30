@@ -63,6 +63,7 @@ jobs:
               --name ${{ inputs.cluster_name }} \
               --resource-group ${{ inputs.rgname }}
           fi
+          ls
           
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4
