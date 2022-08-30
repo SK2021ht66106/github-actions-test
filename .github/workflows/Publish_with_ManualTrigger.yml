@@ -1,4 +1,4 @@
-name: Publish Build Docker Image CI
+name: Publish Build with Manual Trigger
 on:
   workflow_dispatch:
     inputs:
