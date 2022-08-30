@@ -2,10 +2,14 @@ name: Publish Build with Manual Trigger
 on:
   workflow_dispatch:
     inputs:
-      appname:
-        description: 'appname to deploy'     
+      rgname:
+        description: 'Resource group name'     
         required: true
         default: 'test'
+      cluster_name:
+        description: 'AKS Cluster name'     
+        required: true
+        default: 'aks12378678'
         
 jobs:
   Build_and_Publish:
@@ -19,11 +23,37 @@ jobs:
           name: saikiran243275/githubactions:latest
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-  Deploy:
+  Deploy_on_docker:
     runs-on: self-hosted
     steps:
-      - name: Deploy to docker 
+      - name: Deploy on docker 
         run: |
          docker run --name ${{ inputs.appname }} -p 5000 -d saikiran243275/githubactions:latest
          docker ps
          docker images
+  Deploy_on_kubernetes:
+    runs-on: self-hosted
+    steps:
+      - name: AKS Login
+        uses: wemogy/aks-login-action@1.1.1
+        with:
+          name: 
+          resource-group: ${{ inputs.rgname }}
+          client-id: ${{ inputs.cluster_name }}
+          client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          tenant-id: ${{ secrets.ARM_TENANT_ID }}
+          admin: true
+    
+    
+    
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v4
+        with:
+          action: deploy
+          namespace: 'myapp'
+          manifests: |
+            
+          images: saikiran243275/githubactions:latest
+          annotate-namespace: false
+     
+  
