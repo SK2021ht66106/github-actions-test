@@ -2,6 +2,10 @@ name: Publish Build with Manual Trigger
 on:
   workflow_dispatch:
     inputs:
+      appname:
+        description: 'appname'     
+        required: true
+        default: 'app123'
       rgname:
         description: 'Resource group name'     
         required: true
@@ -43,7 +47,7 @@ jobs:
           client-secret: ${{ secrets.ARM_CLIENT_SECRET }}
           tenant-id: ${{ secrets.ARM_TENANT_ID }}
           admin: true
-          
+
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4
         with:
