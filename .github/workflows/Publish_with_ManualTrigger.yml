@@ -70,9 +70,9 @@ jobs:
           action: deploy
           namespace: 'myapp'
           manifests: |
-            deployment.yaml
-            pod_defination.yaml
-            service.yaml
+            manifests\deployment.yaml
+            manifests\pod_defination.yaml
+            manifests\service.yaml
           images: saikiran243275/githubactions:latest
           annotate-namespace: false
      
