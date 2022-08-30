@@ -52,7 +52,7 @@ jobs:
         run:
           namespacePresent='kubectl get namespace | grep myapp | wc -l'
           echo $namespacePresent
-          if [[ "$namespacePresent" == "0" ]];
+          if [[ "$namespacePresent" != "0" ]];
             echo 'kubectl create namespace myapp'
           fi   
       - name: Deploy to Kubernetes cluster 
