@@ -14,6 +14,10 @@ on:
         description: 'AKS Cluster name'     
         required: true
         default: 'aks12378678'
+      namespace:
+        description: 'Namespace to deploy app'     
+        required: true
+        default: 'myapp'
         
 jobs:
   Build_and_Publish:
@@ -50,15 +54,15 @@ jobs:
         id: login
       - name: Create Namespace
         run: |
-          namespacePresent='kubectl get namespace | grep myapp | wc -l'
+          namespacePresent='kubectl get namespace | grep ${{ inputs.namespace }} | wc -l'
           if [[ "$namespacePresent" == "0" ]]; then
-            kubectl create namespace myapp
+            kubectl create namespace ${{ inputs.namespace }}
           fi   
       - name: Deploy to Kubernetes cluster 
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          namespace: 'myapp'
+          namespace: ${{ inputs.namespace }}
           manifests: |
             manifests/deployment.yaml
             manifests/pod_defination.yaml
