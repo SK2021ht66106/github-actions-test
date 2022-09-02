@@ -55,7 +55,7 @@ jobs:
       - name: Create Namespace
         run: |
           namespacePresent='kubectl get namespace | grep ${{ inputs.namespace }} | wc -l'
-          if [[ "$namespacePresent" == "0" ]]; then
+          if [[ "$namespacePresent" != "0" ]]; then
             kubectl create namespace ${{ inputs.namespace }}
           fi   
       - name: Deploy to Kubernetes cluster 
