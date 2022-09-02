@@ -1,21 +1,25 @@
 name: Publish Build with Manual Trigger
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       appname:
-        description: 'appname'     
+        description: 'appname'
+        type: string
         required: true
         default: 'app123'
       rgname:
-        description: 'Resource group name'     
+        description: 'Resource group name'
+        type: string
         required: true
         default: 'github_test_rg'
       cluster_name:
-        description: 'AKS Cluster name'     
+        description: 'AKS Cluster name'
+        type: string
         required: true
         default: 'aks12378678'
       namespace:
-        description: 'Namespace to deploy app'     
+        description: 'Namespace to deploy app'
+        type: string
         required: true
         default: 'myapp'
         
