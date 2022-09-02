@@ -7,7 +7,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   call-workflow:
-    uses: SK2021ht66106/github-actions-test/.github/workflows/appdeploy.yml@main
+    uses: SK2021ht66106/github-actions-test/.github/workflows/apptemplate.yml@main
     with:
       appname: "test123"
       rgname : "Demo1"
