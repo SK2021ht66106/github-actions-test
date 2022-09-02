@@ -1,6 +1,6 @@
 name: App Template
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       appname:
         description: 'appname'
