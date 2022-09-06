@@ -54,5 +54,5 @@ jobs:
         with:
           # Additional arguments for the sonarcloud scanner
           args:             
-            -Dsonar.projectKey=SanjaySagar-Gumma_Trufflehog-Actions-Scan---project
-            -Dsonar.organization=sanjaysagar-gumma
+            -Dsonar.projectKey=githubactionsdemo
+            -Dsonar.organization=kiran275
