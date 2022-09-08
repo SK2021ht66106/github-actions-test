@@ -16,7 +16,7 @@ on:
 jobs:
 
   build:
-    runs-on: vm1windows
+    runs-on: ubuntu-latest
     steps:
     
     - name: Login via Az module
