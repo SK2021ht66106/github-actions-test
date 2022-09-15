@@ -31,7 +31,7 @@ jobs:
           docker build . --file Dockerfile --tag my-image-name:latest
           
       - run: |
-         jf c add --url newapp.jfrog.io --user udaya.bhaskara.narayana.nalluri@gds.ey.com --password N@lluri-1002
+         jf c add --url newapp.jfrog.io --access-token eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiJZZnRPUUxBdjRldVZZcGh3YWtZUzUtejVIb1NlNjB4QU1NYWR2MXhBT3VFIn0.eyJleHQiOiJ7XCJyZXZvY2FibGVcIjpcInRydWVcIn0iLCJzdWIiOiJqZmFjQDAxZ2NmeWR4ZTRlc3h2MGoyNzllcHoxN3lqXC91c2Vyc1wvYWRtaW4iLCJzY3AiOiJhcHBsaWVkLXBlcm1pc3Npb25zXC9hZG1pbiIsImF1ZCI6IipAKiIsImlzcyI6ImpmZmVAMDAwIiwiaWF0IjoxNjYzMjM4NjMwLCJqdGkiOiI1MTJlNGFlMi00ODgwLTQ5YmYtODlmNi02ZWRjZmYwOWU0ZmQifQ.E6kt6ty7HFt0yrV0j8h7OU4feGOvfFBD5itq5nCRCHpW5SlyRUFXKeuHx7yfGZmdNi-4Lql9B5MAUD-F-xVupfBDsMCsLQR50C6-TYG8cqX2d1uvASKv2NhdwgmIpXbXSr4Xq51lGt5JoU2eWASX3jkl1w00jjMDAkPcoGKgZgwjGtbrzfDw3vjUphopfNNbkgDgfmrq3hMc6uCGkw6nfeuRrlvciwFNfANf-r5Y4-tw40chtfLzqJ9Wtr0tlnqlhysvYANhZVlz2MptpiEnVP-jVIc8m8QOBWYock7aHOOzngMid1zwHDjBlAyzpbjlWhKz_H1YM5l76NfGTORyqA
          jfrog rt docker-push newapp.jfrog.io/new-app-docker-remote/my-image-name:latest
         
         
