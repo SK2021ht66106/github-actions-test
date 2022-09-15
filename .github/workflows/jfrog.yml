@@ -34,8 +34,10 @@ jobs:
         env:
           # JFrog platform url (for example: https://acme.jfrog.io) 
           JF_URL: newapp.jfrog.io
+          JF_USER: udaya.bhaskara.narayana.nalluri@gds.ey.com
+          JF_PASSWORD: N@lluri-1002
 
-          JF_ACCESS_TOKEN: ${{ secrets.JFROG_APITOKEN }}
+          #JF_ACCESS_TOKEN: ${{ secrets.JFROG_APITOKEN }}
       - run: |
          jf rt ping
 
