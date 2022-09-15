@@ -39,7 +39,7 @@ jobs:
 
           JF_ACCESS_TOKEN: ${{ secrets.JFROG_APITOKEN }}
       - run: |
-         jf rt docker-push newapp.jfrog.io/new-app-docker-remote/my-image-name:latest --build-name=docker-build --build-number=1.0.0
+         jf rt docker-push newapp.jfrog.io/new-app-docker-remote/my-image-name:latest docker-repo --build-name=docker-build --build-number=1.0.0
 
         
         
