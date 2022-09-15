@@ -29,10 +29,31 @@ jobs:
       - name: Build the Docker image
         run: |
           docker build . --file Dockerfile --tag my-image-name:latest
-          
+        
+      - uses: jfrog/setup-jfrog-cli@v2
+        env:
+          # JFrog platform url (for example: https://acme.jfrog.io) 
+          JF_URL: newapp.jfrog.io
+
+          JF_ACCESS_TOKEN: ${{ secrets.JFROG_APITOKEN }}
       - run: |
-         jf c add --url newapp.jfrog.io --access-token ${{ secrets.JFROG_APITOKEN }}
-         jfrog rt docker-push newapp.jfrog.io/new-app-docker-remote/my-image-name:latest
+         jf rt ping
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+#       - run: |
+#          jf c add --url newapp.jfrog.io --access-token ${{ secrets.JFROG_APITOKEN }}
+#          jfrog rt docker-push newapp.jfrog.io/new-app-docker-remote/my-image-name:latest
         
         
 
