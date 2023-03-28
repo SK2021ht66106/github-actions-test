@@ -30,7 +30,7 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v3
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@v4
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: saikiran243275/githubactions:latest
           username: ${{ secrets.DOCKER_USERNAME }}
